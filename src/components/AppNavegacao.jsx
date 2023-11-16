@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import HomeScreen from './HomeScreen'; import SearchPage from './SearchPage'; import DuelPage from './DuelPage';
+import HomeScreen from './pagInicial/HomeScreen'; import SearchPage from './pagPesquisa/SearchPage'; import DuelPage from './pagDuelo/DuelPage';
 
 const Tab = createBottomTabNavigator();
 
