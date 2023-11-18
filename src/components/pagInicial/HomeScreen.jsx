@@ -2,8 +2,6 @@ import { useEffect, useState } from "react";
 import { StyleSheet, Text,  Image, TouchableOpacity, View, TextInput, ScrollView, FlatList, StatusBar } from "react-native";
 import Rank from "./Rank";
 
-
-
 export default function HomeScreen() {
     return (
         <ScrollView>
