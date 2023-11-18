@@ -11,18 +11,13 @@ export default function HomeScreen() {
             <View className='tables'>
                 <View className='artTable' style={styles.musicaTop}>
                     <Text>TOP 10 ARTISTAS</Text>
-
-
+                    <Rank id='1'/>
                 </View>
 
                 <View className='musTable' style={styles.musicaTop}>
                     <Text>TOP 10 MÚSICAS</Text>
                     <Rank id='2'/>
 
-                </View>
-
-                <View className='albTable'>
-                    <Text>TOP 10 ÁLBUNS</Text>
                 </View>
             </View>
         </ScrollView>
