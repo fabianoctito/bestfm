@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "JogoDaVelha",
-    "slug": "JogoDaVelha",
+    "name": "bestfm",
+    "slug": "bestfm",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
