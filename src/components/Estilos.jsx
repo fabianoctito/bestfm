@@ -1,127 +1,49 @@
 import { StyleSheet } from 'react-native';
+import { StatusBar } from "react-native";
+
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "#8357B3",
-        alignItems: "center",
-        justifyContent: "center",
+        marginTop: StatusBar.currentHeight || 0,
+        backgroundColor: '#0a090c',
     },
-    text: {
-      textAlign: "center",
-      fontSize: 20,
-      color: '#fff'
+    item: {
+        backgroundColor: '#f0edee',
+        padding: 4,
+        paddingHorizontal: 20,
+        marginVertical: 4,
+        marginHorizontal: 8,
+        flexDirection: 'row', 
+        alignItems: 'center',
+        borderRadius: 5,
     },
-    itemsContainer: {
-        marginTop: 5,
-        padding: 20,
-        borderTopLeftRadius: 10,
-        borderTopRightRadius: 10,
-        alignItems: "stretch",
-        backgroundColor: "#291B38",
+    texto: {
+        fontSize: 15,
     },
-    title: {
-        color: "#fff",
-        fontSize: 24,
-        fontWeight: "bold",
-        marginTop: 30,
-        marginBottom: 15,
-    },
-    inputContainer: {
-        flex: 1,
-        marginTop: 31,
-        width: "90%",
-        padding: 20,
-        borderStyle: 'solid',
-        borderWidth: 2,
-        borderColor: 'white',
-        borderTopLeftRadius: 10,
-        borderTopRightRadius: 10,
-        backgroundColor: "#291B38",
-    },
-    input: {
-        marginTop: 10,
-        height: 60,
-        backgroundColor: "#fff",
-        borderRadius: 10,
-        paddingHorizontal: 24,
-        fontSize: 16,
-    },
-    button: {
-        marginTop: 10,
-        height: 60,
-        backgroundColor: "#8357B3",
-        borderRadius: 10,
-        paddingHorizontal: 24,
-        alignItems: "center",
-        justifyContent: "center",
-    },
-    buttonText: {
-        color: "#fff",
-        fontWeight: "bold",
-        fontSize: 18,
-    },
-    editDeleteText: {
-        color: "#fff",
-        fontWeight: "bold",
-    },
-    containerItem: {
-        padding: 10,
-        backgroundColor: '#8357B3',
-        marginTop: 10,
-        width: "100%",
-        borderRadius: 10,
-        borderStyle: 'solid',
-        borderWidth: 1,
-        borderColor: 'black'
-    },
-    buttonsContainer: {
-        flexDirection: "row-reverse",
-        paddingBottom: 10,
-        marginTop: 10,
-    },
-    editButton: {
-        marginLeft: 10,
-        height: 40,
-        backgroundColor: "blue",
-        borderRadius: 10,
-        padding: 10,
-        fontSize: 12,
-        elevation: 10,
-        shadowOpacity: 10,
-        shadowColor: "#ccc",
-        alignItems: "center",
-    },
-    deleteButton: {
-        marginLeft: 10,
-        height: 40,
-        width: 40,
-        backgroundColor: "red",
-        borderRadius: 10,
-        padding: 10,
-        fontSize: 12,
-        elevation: 10,
-        shadowOpacity: 10,
-        shadowColor: "#ccc",
-        alignItems: "center",
-    },
-    textItem: {
+    tinyLogo: {
+        width: 30,
+        height: 30,
+      },
+      musicaTop: {
+        padding: 5,
+        backgroundColor: '#2c666e',
+        marginVertical: 4,
+        marginHorizontal: 10,
+        borderRadius: 4,
+        marginTop: 3,
+      },
+      titulo: {
+        fontSize: 17,
+        color: '#f0edee',
+        textAlign: 'center',
+        fontWeight: 500,
+        margin: 10,
+      },
+      numero: {
         fontSize: 20,
-        color: 'white',
-    },
-    scrollContainer: {
-        marginTop: 5,
-        borderStyle: 'solid',
-        borderWidth: 2,
-        borderColor: 'white',
-        borderTopLeftRadius: 10,
-        borderTopRightRadius: 10,
-        alignItems: "stretch",
-        backgroundColor: "#291B38",
-        flex: 1,
-        width: "90%",
-        marginTop: 30,
-    },
+        marginRight: 10,
+      },
 });
 
-export { styles }
+export default styles

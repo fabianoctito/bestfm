@@ -1,6 +1,7 @@
 import { FlatList} from "react-native";
 import { useEffect, useState } from "react";
 import { consultarTopArtistas, consultarTopTracks } from '../dados.jsx';
+import styles from '../Estilos.jsx'
 import ItemRank from "./ItemRank.jsx";
 
 export default function Rank(props) {
@@ -16,7 +17,7 @@ export default function Rank(props) {
         return (
             <FlatList
                 data={rankArtista}
-                renderItem={({ item }) => <ItemRank artista={item.name} />}
+                renderItem={({ item }) => <ItemRank artista={item.name} num={rankArtista.findIndex((i)=>{return (i == item)})}/>}
                 keyExtractor={item => item.name}
             />
         )
@@ -25,7 +26,7 @@ export default function Rank(props) {
         return (
             <FlatList
                 data={rankTrack}
-                renderItem={({ item }) => <ItemRank musica={item.name} artista={item.artist.name} />}
+                renderItem={({ item }) => <ItemRank musica={item.name} artista={item.artist.name} num={rankTrack.findIndex((i)=>{return (i == item)})} />}
                 keyExtractor={item => item.name}
             />
         )
