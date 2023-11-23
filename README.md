@@ -10,4 +10,3 @@ npm install @react-navigation/bottom-tabs
 npx react-native-asset
 
 
-npm i react-native-picker-select
