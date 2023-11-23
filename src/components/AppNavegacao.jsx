@@ -10,11 +10,12 @@ export default function AppNavegacao() {
   return (
     <NavigationContainer >
       <Tab.Navigator>
+      <Tab.Screen name="Pesquisa" component={SearchPage} />
+
         <Tab.Screen name="Início" component={HomeScreen}
         screenOptions={{
         }}
       />
-        <Tab.Screen name="Pesquisa" component={SearchPage} />
         <Tab.Screen name="Duelo" component={DuelPage} />
       </Tab.Navigator>
     </NavigationContainer>
