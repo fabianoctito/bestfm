@@ -38,11 +38,21 @@ const styles = StyleSheet.create({
         color: '#f0edee',
         textAlign: 'center',
         fontWeight: 500,
-        margin: 10,
+        margin: 1,
       },
       numero: {
         fontSize: 20,
         marginRight: 10,
+      },
+      logo: {
+        width: 160,
+        height: 140,
+        margin: 5,
+      },
+      cabecalho: {
+        height: 190,
+        alignItems: 'center',
+        alignContent: 'center',
       },
 });
 
