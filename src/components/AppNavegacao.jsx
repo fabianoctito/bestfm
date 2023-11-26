@@ -9,9 +9,8 @@ const Tab = createBottomTabNavigator();
 export default function AppNavegacao() {
   return (
     <NavigationContainer >
-      <Tab.Navigator>
+      <Tab.Navigator initialRouteName='Início'>
       <Tab.Screen name="Pesquisa" component={SearchPage} />
-
         <Tab.Screen name="Início" component={HomeScreen}
         screenOptions={{
         }}

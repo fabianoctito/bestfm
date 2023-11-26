@@ -1,6 +1,6 @@
 import { FlatList} from "react-native";
 import { useEffect, useState } from "react";
-import { consultarTopArtistas, consultarTopTracks } from '../dados.jsx';
+import { consultarTopArtistas, consultarTopTracks } from '../../utils.jsx';
 import styles from '../Estilos.jsx'
 import ItemRank from "./ItemRank.jsx";
 

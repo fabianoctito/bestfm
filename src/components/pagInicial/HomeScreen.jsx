@@ -6,7 +6,10 @@ import Rank from "./Rank";
 export default function HomeScreen() {
     return (
         <ScrollView style={styles.container}>
-            <View><Text style={styles.titulo}>SEJA BEM VINDO AO BEST.FM</Text></View>
+            <View style={styles.cabecalho}> 
+                <Image style={styles.logo} source={require('../img/logo.png')}></Image>
+                <Text style={styles.titulo}>SEJA BEM VINDO AO BEST.FM</Text>
+            </View>
             <View className='tables'>
                 <View style={styles.musicaTop}>
                     <Text style={styles.titulo}>TOP 10 ARTISTAS</Text>
