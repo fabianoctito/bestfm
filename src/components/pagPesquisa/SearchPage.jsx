@@ -1,9 +1,7 @@
 import { useEffect, useState } from "react";
 import { StyleSheet, Text, TouchableOpacity, View, TextInput, Pressable, Image, FlatList, ScrollView } from "react-native";
-import { Button } from "react-native-web";
-// import Resultado from "./Resultado.jsx";
-import { realizarPesquisa, apresentarResultado } from '../../utils.jsx';
-
+import { realizarPesquisa } from '../../utils.jsx';
+import Resultado from "./Resultado.jsx";
 
 export default function SearchPage({ navigation }) {
     const [opcao, setOpcao] = useState([1, 'música'])
@@ -11,22 +9,11 @@ export default function SearchPage({ navigation }) {
     const [resultadoLista, setResultadoLista] = useState([])
 
     useEffect(() => {
-        console.log(resultadoLista)
+        // console.log(resultadoLista)
     }, [resultadoLista])
 
-    function Resultado(props) {
-        if (props.res == []) return
-        return (
-            <FlatList
-                data={props.res}
-                renderItem={({ item }) => <Pressable onPress={() => navigation.push('ResultPage', { nome: item.name, artista: item.artist })} style={styles.itemOpcao}><Text>{item.name} - {item.artist}</Text></Pressable>}
-                keyExtractor={item => item.url}
-            />
-        )
-    }
-
     return (
-        <View>
+        <ScrollView>
             <View style={styles.pesquisa}>
                 <TextInput
                     style={styles.input}
@@ -46,12 +33,11 @@ export default function SearchPage({ navigation }) {
             </View>
 
             <View style={styles.selecao}>
-                <Resultado res={resultadoLista} />
+                <Resultado id={opcao[0]} naveg={navigation} res={resultadoLista} />
             </View>
-        </View>
+        </ScrollView>
     );
 }
-
 
 const styles = StyleSheet.create({
     itemOpcao: {
@@ -81,7 +67,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         paddingVertical: 10,
         paddingHorizontal: 10,
-        height: "70%",
+        height: 40,
         borderRadius: 4,
         backgroundColor: 'gray',
     },
