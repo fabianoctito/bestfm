@@ -1,31 +1,42 @@
 import { useEffect, useState } from "react";
-import { StyleSheet, Text, TouchableOpacity, View, TextInput, Pressable, Image } from "react-native";
-import { ScrollView } from "react-native-gesture-handler";
+import { StyleSheet, Text, TouchableOpacity, View, TextInput, Pressable, Image, FlatList, ScrollView } from "react-native";
 import { Button } from "react-native-web";
-import Resultado from "./Resultado.jsx";
+// import Resultado from "./Resultado.jsx";
 import { realizarPesquisa, apresentarResultado } from '../../utils.jsx';
 
-export default function SearchPage() {
+
+export default function SearchPage({ navigation }) {
     const [opcao, setOpcao] = useState([1, 'música'])
     const [pesquisa, setPesquisa] = useState('')
-    const [resultadoLista, setResultadoLista] = useState('')
+    const [resultadoLista, setResultadoLista] = useState([])
 
     useEffect(() => {
         console.log(resultadoLista)
     }, [resultadoLista])
 
+    function Resultado(props) {
+        if (props.res == []) return
+        return (
+            <FlatList
+                data={props.res}
+                renderItem={({ item }) => <Pressable onPress={() => navigation.push('ResultPage', { nome: item.name, artista: item.artist })} style={styles.itemOpcao}><Text>{item.name} - {item.artist}</Text></Pressable>}
+                keyExtractor={item => item.url}
+            />
+        )
+    }
+
     return (
-        <ScrollView>
+        <View>
             <View style={styles.pesquisa}>
                 <TextInput
                     style={styles.input}
                     onChangeText={setPesquisa}
                     value={pesquisa}
                     placeholder={`Procure por ${opcao[1]}`}
-                    keyboardType="numeric"
+                    inputMode="text"
                 />
                 <Pressable style={styles.botao}
-                onPress={() => realizarPesquisa(opcao[0], pesquisa).then((res) => setResultadoLista(res))}><Text>lupa</Text></Pressable>
+                    onPress={() => realizarPesquisa(opcao[0], pesquisa).then((res) => setResultadoLista(res))}><Text>lupa</Text></Pressable>
             </View>
 
             <View style={styles.opcoes}>
@@ -35,14 +46,9 @@ export default function SearchPage() {
             </View>
 
             <View style={styles.selecao}>
-                {/* <Resultado res={resultadoLista}/> */}
-
-                <View style={styles.itemOpcao}>
-                    <Text>ARTISTA/ALBUM/MUSICA</Text>
-                </View>
-
+                <Resultado res={resultadoLista} />
             </View>
-        </ScrollView>
+        </View>
     );
 }
 

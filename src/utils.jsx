@@ -19,11 +19,11 @@ export async function consultarTopTracks() {
 }
 
 export async function realizarPesquisa(cod, texto) {
-  console.log(cod)
   if (cod == 1) {
     try {
       const response = await fetch(`https://ws.audioscrobbler.com/2.0/?method=track.search&track=${texto}&api_key=32c7f2300cd26210d0ffcb714ce26ca7&format=json&limit=10`);
       const json = await response.json();
+      if(!json.results) return []
       return json.results.trackmatches.track;      
     } catch (error) {
       console.error(error);

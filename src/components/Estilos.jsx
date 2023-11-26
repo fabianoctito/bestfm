@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
         fontSize: 17,
         color: '#f0edee',
         textAlign: 'center',
-        fontWeight: 500,
+        // fontWeight: 100, FICA CRASHANDO O APP
         margin: 1,
       },
       numero: {
