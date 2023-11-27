@@ -12,12 +12,12 @@ export default function HomeScreen() {
             </View>
             <View className='tables'>
                 <View style={styles.musicaTop}>
-                    <Text style={styles.titulo}>TOP 10 ARTISTAS</Text>
+                    <Text style={styles.titulo}>TOP 10 ARTISTAS GLOBAIS</Text>
                     <Rank id='1'/>
                 </View>
 
                 <View style={styles.musicaTop}>
-                    <Text style={styles.titulo}>TOP 10 MÚSICAS</Text>
+                    <Text style={styles.titulo}>TOP 10 MÚSICAS GLOBAIS</Text>
                     <Rank id='2'/>
                 </View>
             </View>
