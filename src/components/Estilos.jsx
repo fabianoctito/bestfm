@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
         borderRadius: 5,
     },
     texto: {
-        fontSize: 15,
+        fontSize: 20,
     },
     tinyLogo: {
         width: 30,
@@ -29,9 +29,10 @@ const styles = StyleSheet.create({
         padding: 5,
         backgroundColor: '#2c666e',
         marginVertical: 4,
-        marginHorizontal: 10,
+        marginHorizontal: 15,
         borderRadius: 4,
         marginTop: 3,
+        marginBottom: 13,
       },
       titulo: {
         fontSize: 17,
@@ -53,6 +54,7 @@ const styles = StyleSheet.create({
         height: 190,
         alignItems: 'center',
         alignContent: 'center',
+        marginTop: 10,
       },
 });
 
