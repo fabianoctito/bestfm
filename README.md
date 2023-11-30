@@ -14,3 +14,13 @@ npm install @react-navigation/native-stack
 
 npx expo install react-native-gesture-handler
 
+
+npm install react-native-vector-icons --save
+
+
+
+react-native link react-native-vector-icons
+
+
+
+
