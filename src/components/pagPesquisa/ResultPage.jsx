@@ -1,5 +1,5 @@
 import { StyleSheet, Text, TouchableOpacity, View, Alert, Platform, StatusBar, Image, ScrollView, FlatList, Pressable } from "react-native";
-import styles2 from '../Estilos.jsx';
+import styles from '../Estilos.jsx';
 import { retornarInfo } from "../../utils.jsx";
 import { useState } from "react";
 
@@ -60,15 +60,3 @@ export default function ResultPage({ route, navigation }) {
         )
     }
 }
-
-const styles = StyleSheet.create({
-    botaoVoltar: {
-        alignItems: 'center',
-        justifyContent: 'center',
-        paddingVertical: 10,
-        paddingHorizontal: 10,
-        height: "20%",
-        borderRadius: 4,
-        backgroundColor: 'gray',
-    },
-});

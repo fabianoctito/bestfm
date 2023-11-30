@@ -1,5 +1,5 @@
 import { StyleSheet, Text, TouchableOpacity, View, Alert, Platform, StatusBar, Image, ScrollView, FlatList, Pressable } from "react-native";
-// import styles from '../Estilos.jsx'
+import styles from '../Estilos.jsx'
 export default function Resultado(props) {
     if (!props.res[0]) return
     if (props.id == 1 && props.res[1] == 1) {
@@ -33,15 +33,3 @@ export default function Resultado(props) {
         )
     }
 }
-
-const styles = StyleSheet.create({
-    itemOpcao: {
-        backgroundColor: 'cyan',
-        width: '90%',
-        padding: 10,
-        margin: 5,
-        alignItems: 'center',
-        alignSelf: 'center'
-    }
-
-});

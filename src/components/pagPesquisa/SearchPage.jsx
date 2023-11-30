@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { StyleSheet, Text, TouchableOpacity, View, TextInput, Pressable, Image, FlatList, ScrollView } from "react-native";
 import { realizarPesquisa } from '../../utils.jsx';
+import styles from '../Estilos.jsx';
 import Resultado from "./Resultado.jsx";
 
 export default function SearchPage({ navigation }) {
@@ -38,52 +39,3 @@ export default function SearchPage({ navigation }) {
         </ScrollView>
     );
 }
-
-const styles = StyleSheet.create({
-    itemOpcao: {
-        backgroundColor: 'cyan',
-        width: '90%',
-        padding: 10,
-        margin: 5,
-        alignItems: 'center',
-    },
-    selecao: {
-        width: '100%',
-        alignItems: 'center',
-    },
-    iconeSelecionado: {
-        height: 40,
-        width: 40,
-        overflow: "hidden",
-        borderWidth: 3,
-        borderColor: "red"
-    },
-    pesquisa: {
-        flexDirection: "row",
-        alignItems: 'center'
-    },
-    botao: {
-        alignItems: 'center',
-        justifyContent: 'center',
-        paddingVertical: 10,
-        paddingHorizontal: 10,
-        height: 40,
-        borderRadius: 4,
-        backgroundColor: 'gray',
-    },
-    input: {
-        height: 40,
-        margin: 12,
-        width: "75%",
-        borderWidth: 1,
-        padding: 10,
-    },
-    icone: {
-        height: 40,
-        width: 40,
-    },
-    opcoes: {
-        flexDirection: "row",
-        justifyContent: 'space-evenly'
-    }
-});
