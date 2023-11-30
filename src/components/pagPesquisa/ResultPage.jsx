@@ -5,42 +5,64 @@ import { useState } from "react";
 
 export default function ResultPage({ route, navigation }) {
     const [resultInfo, setResultInfo] = useState({})
-
     const { id, nome, artista } = route.params
+    
     if (id == 1) {
+        const coletarRes = async () => retornarInfo(id, nome, artista).then((res) => setResultInfo(res))
+        coletarRes()
         return (
             <View>
-                {/* <Text>{nome} - {artista} - {ouvintes} ouvintes no last.fm</Text>
-                <Pressable style={styles.botao} onPress={() => navigation.pop()}><Text>Voltar</Text></Pressable> */}
+                <View>
+                    <Text>{nome} - {artista}</Text>
+                    <Text>No total, {resultInfo.plays} plays e {resultInfo.ouvintes} ouvintes no last.fm!</Text>
+                    <Text>
+                        {resultInfo.tags ? `Tags: ${resultInfo.tags}` : ''}
+                    </Text>
+                    <Pressable style={styles.botaoVoltar} onPress={() => navigation.pop()}><Text>Voltar</Text></Pressable>
+                </View>
             </View>
         )
     } else if (id == 2) {
-        const coletarRes = async () => retornarInfo(id,nome).then((res)=>setResultInfo(res))
+        const coletarRes = async () => retornarInfo(id, nome).then((res) => setResultInfo(res))
         coletarRes()
         return (
             <View>
                 <Text>{nome}</Text>
-                <Text>No total, {resultInfo.plays} e {resultInfo.ouvintes} ouvintes no last.fm!</Text>
+                <Text>No total, {resultInfo.plays} plays e {resultInfo.ouvintes} ouvintes no last.fm!</Text>
                 <Text>
-                    {resultInfo.bio ? resultInfo.bio: ''}
+                    {resultInfo.bio ? `Sobre: ${resultInfo.bio}` : ''}
                 </Text>
-                <Pressable style={styles.botao} onPress={() => navigation.pop()}><Text>Voltar</Text></Pressable>
+                <Text>
+                    {resultInfo.tour ? `${nome} está em tour no momento!` : `${nome} não está em tour no momento.`}
+                </Text>
+                <Text>
+                    {resultInfo.tags ? `Tags: ${resultInfo.tags}` : ''}
+                </Text>
+                <Pressable style={styles.botaoVoltar} onPress={() => navigation.pop()}><Text>Voltar</Text></Pressable>
             </View>
         )
     } else if (id == 3) {
+        const coletarRes = async () => retornarInfo(id, nome, artista).then((res) => setResultInfo(res))
+        coletarRes()
         return (
             <View>
-                {/* <Text>{nome} - {artista}</Text>
-                <Pressable style={styles.botao} onPress={() => navigation.pop()}><Text>Voltar</Text></Pressable>
-                <Image style={{width: 200, height: 200}} source={{uri: imagem['#text']}}></Image> */}
+                <View>
+                    <Text>{nome} - {artista}</Text>
+                    <Text>No total, {resultInfo.plays} plays e {resultInfo.ouvintes} ouvintes no last.fm!</Text>
+                    <Text>
+                        {resultInfo.tags ? `Tags: ${resultInfo.tags}` : ''}
+                    </Text>
+                    <Image style={{ width: 200, height: 200 }} source={{ uri: resultInfo.image }}></Image>
+
+                </View>
+                <Pressable style={styles.botaoVoltar} onPress={() => navigation.pop()}><Text>Voltar</Text></Pressable>
             </View>
         )
     }
-
 }
 
 const styles = StyleSheet.create({
-    botao: {
+    botaoVoltar: {
         alignItems: 'center',
         justifyContent: 'center',
         paddingVertical: 10,

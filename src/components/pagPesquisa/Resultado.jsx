@@ -7,7 +7,7 @@ export default function Resultado(props) {
             <View>
                 {
                     props.res[0].map((item) => (
-                        <Pressable key={item.url} onPress={() => props.naveg.push('ResultPage', { id: props.id, nome: item.name, artista: item.artist, ouvintes: item.listeners })} style={styles.itemOpcao}><Text><Text style={{ fontWeight: 'bold' }}>{item.name}</Text> - {item.artist}</Text></Pressable>
+                        <Pressable key={item.url} onPress={() => props.naveg.push('ResultPage', { id: props.id, nome: item.name, artista: item.artist })} style={styles.itemOpcao}><Text><Text style={{ fontWeight: 'bold' }}>{item.name}</Text> - {item.artist}</Text></Pressable>
                     ))}
             </View>
         )
@@ -17,7 +17,7 @@ export default function Resultado(props) {
             <View>
                 {
                     props.res[0].map((item) => (
-                        <Pressable key={item.url} onPress={() => props.naveg.push('ResultPage', { id: props.id, nome: item.name, ouvintes: item.listeners })} style={styles.itemOpcao}><Text style={{ fontWeight: 'bold' }}>{item.name}</Text></Pressable>
+                        <Pressable key={item.url} onPress={() => props.naveg.push('ResultPage', { id: props.id, nome: item.name })} style={styles.itemOpcao}><Text style={{ fontWeight: 'bold' }}>{item.name}</Text></Pressable>
                     ))}
             </View>
         )
@@ -27,7 +27,7 @@ export default function Resultado(props) {
             <View>
                 {
                     props.res[0].map((item) => (
-                        <Pressable key={item.url} onPress={() => props.naveg.push('ResultPage', { id: props.id, nome: item.name, artista: item.artist, ouvintes: item.listeners, imagem: item.image[3] })} style={styles.itemOpcao}><Text><Text style={{ fontWeight: 'bold' }}>{item.name}</Text> - {item.artist}</Text></Pressable>
+                        <Pressable key={item.url} onPress={() => props.naveg.push('ResultPage', { id: props.id, nome: item.name, artista: item.artist })} style={styles.itemOpcao}><Text><Text style={{ fontWeight: 'bold' }}>{item.name}</Text> - {item.artist}</Text></Pressable>
                     ))}
             </View>
         )
