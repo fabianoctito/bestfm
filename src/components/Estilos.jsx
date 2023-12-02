@@ -86,8 +86,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   iconeSelecionado: {
-    height: 40,
-    width: 40,
     overflow: "hidden",
     borderWidth: 3,
     borderColor: "red"
@@ -110,10 +108,6 @@ const styles = StyleSheet.create({
     width: "75%",
     borderWidth: 1,
     padding: 10,
-  },
-  icone: {
-    height: 40,
-    width: 40,
   },
   opcoes: {
     flexDirection: "row",
