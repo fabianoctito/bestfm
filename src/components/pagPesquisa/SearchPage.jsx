@@ -3,6 +3,9 @@ import { StyleSheet, Text, TouchableOpacity, View, TextInput, Pressable, Image, 
 import { realizarPesquisa } from '../../utils.jsx';
 import styles from '../Estilos.jsx';
 import Resultado from "./Resultado.jsx";
+import { FontAwesome } from '@expo/vector-icons';
+import { Feather } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 export default function SearchPage({ navigation }) {
     const [opcao, setOpcao] = useState([1, 'música'])
@@ -24,13 +27,16 @@ export default function SearchPage({ navigation }) {
                     inputMode="text"
                 />
                 <Pressable style={styles.botao}
-                    onPress={() => realizarPesquisa(opcao[0], pesquisa).then((res) => setResultadoLista(res))}><Text>lupa</Text></Pressable>
+                    onPress={() => realizarPesquisa(opcao[0], pesquisa).then((res) => setResultadoLista(res))}><FontAwesome
+                    name="search"
+                    size={24}
+                    color="white"/></Pressable>
             </View>
 
             <View style={styles.opcoes}>
-                <Pressable onPress={() => { setOpcao([1, 'música']) }}><Image style={opcao[1] == 'música' ? styles.iconeSelecionado : styles.icone} source={require('../img/musica.png')} /></Pressable>
-                <Pressable onPress={() => { setOpcao([2, 'artista']) }}><Image style={opcao[1] == 'artista' ? styles.iconeSelecionado : styles.icone} source={require('../img/artista.png')} /></Pressable>
-                <Pressable onPress={() => { setOpcao([3, 'álbum']) }}><Image style={opcao[1] == 'álbum' ? styles.iconeSelecionado : styles.icone} source={require('../img/album.png')} /></Pressable>
+                <Pressable onPress={() => { setOpcao([1, 'música']) }}><MaterialCommunityIcons name="music-note" size={40} color='black' style={opcao[1] == 'música' ? styles.iconeSelecionado : styles.icone} /></Pressable>
+                <Pressable onPress={() => { setOpcao([2, 'artista']) }}><MaterialCommunityIcons name="microphone-variant" size={40} color='black'  style={opcao[1] == 'artista' ? styles.iconeSelecionado : styles.icone} /></Pressable>
+                <Pressable onPress={() => { setOpcao([3, 'álbum']) }}><MaterialCommunityIcons name="album" size={40} color='black' style={opcao[1] == 'álbum' ? styles.iconeSelecionado : styles.icone} /></Pressable>
             </View>
 
             <View style={styles.selecao}>
