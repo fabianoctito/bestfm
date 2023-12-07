@@ -14,7 +14,7 @@ const Tab = createBottomTabNavigator();
 export default function AppNavegacao() {
   return (
     <NavigationContainer >
-      <Tab.Navigator initialRouteName='Duelo'
+      <Tab.Navigator initialRouteName='Pesquisa'
         screenOptions={{
           tabBarInactiveBackgroundColor: '#07393c',
           tabBarActiveBackgroundColor: '#f0edee',

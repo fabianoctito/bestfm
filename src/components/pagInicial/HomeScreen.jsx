@@ -9,7 +9,6 @@ export default function HomeScreen() {
             <View style={styles.cabecalho}>
                 <Image style={styles.logo} source={require('../img/logo.png')}></Image>
                 <Text style={styles.titulo}>SEJA BEM VINDO AO BEST.FM</Text>
-                
                 </View>
             <View className='tables'>
                 <View style={styles.musicaTop}>

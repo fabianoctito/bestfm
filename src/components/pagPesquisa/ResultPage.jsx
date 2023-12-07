@@ -6,7 +6,11 @@ import { useState } from "react";
 export default function ResultPage({ route, navigation }) {
     const [resultInfo, setResultInfo] = useState({})
     const { id, nome, artista } = route.params
-    
+    const userChoice = {
+        id,
+        nome,
+        artista
+    }
     if (id == 1) {
         const coletarRes = async () => retornarInfo(id, nome, artista).then((res) => setResultInfo(res))
         coletarRes()
@@ -18,6 +22,7 @@ export default function ResultPage({ route, navigation }) {
                     <Text>
                         {resultInfo.tags ? `Tags: ${resultInfo.tags}` : ''}
                     </Text>
+                    <Pressable style={styles.botaoVoltar} onPress={() => navigation.navigate('Duelo', { userChoice })}><Text>Comparar</Text></Pressable>
                     <Pressable style={styles.botaoVoltar} onPress={() => navigation.pop()}><Text>Voltar</Text></Pressable>
                 </View>
             </View>
@@ -38,6 +43,7 @@ export default function ResultPage({ route, navigation }) {
                 <Text>
                     {resultInfo.tags ? `Tags: ${resultInfo.tags}` : ''}
                 </Text>
+                <Pressable style={styles.botaoVoltar} onPress={() => navigation.navigate('Duelo', { userChoice })}><Text>Comparar</Text></Pressable>
                 <Pressable style={styles.botaoVoltar} onPress={() => navigation.pop()}><Text>Voltar</Text></Pressable>
             </View>
         )
@@ -55,6 +61,7 @@ export default function ResultPage({ route, navigation }) {
                     <Image style={{ width: 200, height: 200 }} source={{ uri: resultInfo.image }}></Image>
 
                 </View>
+                <Pressable style={styles.botaoVoltar} onPress={() => navigation.navigate('Duelo', { userChoice })}><Text>Comparar</Text></Pressable>
                 <Pressable style={styles.botaoVoltar} onPress={() => navigation.pop()}><Text>Voltar</Text></Pressable>
             </View>
         )

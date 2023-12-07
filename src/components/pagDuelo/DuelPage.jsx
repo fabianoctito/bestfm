@@ -1,10 +1,25 @@
 import { useEffect, useState } from "react";
 import { StyleSheet, Text, TouchableOpacity, View, TextInput, Pressable, Image, FlatList, ScrollView } from "react-native";
+import { procurarUser, coletarInfoUser } from "../../utils.jsx";
 import styles2 from '../Estilos.jsx';
 
-export default function DuelPage() {
-    const [opcao, setOpcao] = useState([1, 'música'])
-    const [pesquisa, setPesquisa] = useState('')
+export default function DuelPage({ route }) {
+    const [escolha, setEscolha] = useState({})
+    const [usuario1, setUsuario1] = useState('')
+    const [usuario2, setUsuario2] = useState('')
+    const [imgUser1, setImgUser1] = useState('https://cdn.icon-icons.com/icons2/67/PNG/512/user_13230.png')
+    const [imgUser2, setImgUser2] = useState('https://cdn.icon-icons.com/icons2/67/PNG/512/user_13230.png') 
+    // DPS TIRAR ISSO E COLOCAR NUM ARRAY COM USUARIO SLA
+
+    const searchUs1 = (e) => {
+        
+        procurarUser(e).then((response)=>{setImgUser1(response)
+        console.log(response)})
+    }
+
+    useEffect(() => {
+        if (route.params) setEscolha(route.params.userChoice)
+    }, [route.params])
 
     return (
         <View>
@@ -17,14 +32,22 @@ export default function DuelPage() {
             </View>
             <View style={styles.usersContainer}>
                 <View style={styles2.imgUsuario}>
-                    <Image source={{ uri: 'https://cdn.icon-icons.com/icons2/67/PNG/512/user_13230.png' }} style={{ width: 148, height: 148, alignSelf: 'center' }}></Image>
-                    <TextInput style={styles.input} />
+                    <Image source={{ uri: imgUser1 }} style={{ width: 148, height: 148, alignSelf: 'center' }}></Image>
+                    <TextInput style={styles.input}
+                        onChangeText={e => { setUsuario1(e); searchUs1(e)}}
+                        placeholder={`1º usuário`}
+                        value={usuario1}
+                        inputMode="text" />
                     {/* DEPOIS MUDAR */}
                 </View>
 
                 <View style={styles2.imgUsuario}>
-                    <Image source={{ uri: 'https://cdn.icon-icons.com/icons2/67/PNG/512/user_13230.png' }} style={{ width: 148, height: 148, alignSelf: 'center' }}></Image>
-                    <TextInput style={styles.input} />
+                    <Image source={{ uri: imgUser2 }} style={{ width: 148, height: 148, alignSelf: 'center' }}></Image>
+                    <TextInput style={styles.input}
+                        onChangeText={e => { setUsuario1(e); searchUs1(e)}}
+                        placeholder={`2º usuário`}
+                        value={usuario2}
+                        inputMode="text" />
                     {/* DEPOIS MUDAR */}
                 </View>
             </View>

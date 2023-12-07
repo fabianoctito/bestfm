@@ -108,3 +108,18 @@ export async function retornarInfo(cod, nome, artistaRel) {
   }
 }
 
+export async function procurarUser(usuario){
+  console.log(usuario)
+  try {
+    const response = await fetch(`https://ws.audioscrobbler.com/2.0/?method=user.getinfo&user=${usuario}&api_key=32c7f2300cd26210d0ffcb714ce26ca7&format=json`);
+    const json = await response.json();
+    console.log(json)
+    return json.user.image[3]['#text']
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+export async function coletarInfoUser(){
+  
+}
