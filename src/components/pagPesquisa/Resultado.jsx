@@ -27,7 +27,7 @@ export default function Resultado(props) {
             <View style={styles.resultados}>
                 {
                     props.res[0].map((item) => (
-                        <Pressable key={item.url} onPress={() => props.naveg.push('ResultPage', { id: props.id, nome: item.name, artista: item.artist })} style={styles.itemResultado}><Text style={styles.textoResultado}><Text style={styles.textoResultado}>{item.name}</Text> - {item.artist}</Text></Pressable>
+                        <Pressable key={item.url} onPress={() => props.naveg.push('ResultPage', { id: props.id, nome: item.name, artista: item.artist })} style={styles.itemResultado}><Text style={styles.textoResultado}><Text style={{fontWeight: 'bold'}}>{item.name}</Text> - {item.artist}</Text></Pressable>
                     ))}
             </View>
         )

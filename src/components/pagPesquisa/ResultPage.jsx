@@ -15,15 +15,17 @@ export default function ResultPage({ route, navigation }) {
         const coletarRes = async () => retornarInfo(id, nome, artista).then((res) => setResultInfo(res))
         coletarRes()
         return (
-            <View>
-                <View>
-                    <Text>{nome} - {artista}</Text>
-                    <Text>No total, {resultInfo.plays} plays e {resultInfo.ouvintes} ouvintes no last.fm!</Text>
-                    <Text>
+            <View style={styles.container}>
+                <View style={styles.resultadoInfo}>
+                    <Text style={styles.tituloResultadoInfo}>{nome} - {artista}</Text>
+                    <Text style={styles.textoResultadoInfo}>No total, {resultInfo.plays} plays e {resultInfo.ouvintes} ouvintes no last.fm!</Text>
+                    <Text style={styles.textoResultadoInfo}>
                         {resultInfo.tags ? `Tags: ${resultInfo.tags}` : ''}
                     </Text>
-                    <Pressable style={styles.botaoVoltar} onPress={() => navigation.navigate('Duelo', { userChoice })}><Text>Comparar</Text></Pressable>
-                    <Pressable style={styles.botaoVoltar} onPress={() => navigation.pop()}><Text>Voltar</Text></Pressable>
+                    <View style={styles.botaoVoltarCaixa}>
+                        <Pressable style={styles.botaoVoltar} onPress={() => navigation.navigate('Duelo', { userChoice })}><Text>Comparar</Text></Pressable>
+                        <Pressable style={styles.botaoVoltar} onPress={() => navigation.pop()}><Text>Voltar</Text></Pressable>
+                    </View>
                 </View>
             </View>
         )
@@ -31,38 +33,45 @@ export default function ResultPage({ route, navigation }) {
         const coletarRes = async () => retornarInfo(id, nome).then((res) => setResultInfo(res))
         coletarRes()
         return (
-            <View>
-                <Text>{nome}</Text>
-                <Text>No total, {resultInfo.plays} plays e {resultInfo.ouvintes} ouvintes no last.fm!</Text>
-                <Text>
-                    {resultInfo.bio ? `Sobre: ${resultInfo.bio}` : ''}
-                </Text>
-                <Text>
-                    {resultInfo.tour ? `${nome} está em tour no momento!` : `${nome} não está em tour no momento.`}
-                </Text>
-                <Text>
-                    {resultInfo.tags ? `Tags: ${resultInfo.tags}` : ''}
-                </Text>
-                <Pressable style={styles.botaoVoltar} onPress={() => navigation.navigate('Duelo', { userChoice })}><Text>Comparar</Text></Pressable>
-                <Pressable style={styles.botaoVoltar} onPress={() => navigation.pop()}><Text>Voltar</Text></Pressable>
+            <View style={styles.container}>
+                <View style={styles.resultadoInfo}>
+                    <Text style={styles.tituloResultadoInfo}>{nome}</Text>
+                    <Text style={styles.textoResultadoInfo}>No total, {resultInfo.plays} plays e {resultInfo.ouvintes} ouvintes no last.fm!</Text>
+                    <Text style={styles.textoResultadoInfo}>
+                        {resultInfo.bio ? `Sobre: ${resultInfo.bio}` : ''}
+                    </Text>
+                    <Text style={styles.textoResultadoInfo}>
+                        {resultInfo.tour ? `${nome} está em tour no momento!` : `${nome} não está em tour no momento.`}
+                    </Text>
+                    <Text style={styles.textoResultadoInfo}>
+                        {resultInfo.tags ? `Tags: ${resultInfo.tags}` : ''}
+                    </Text>
+                    <View style={styles.botaoVoltarCaixa}>
+                        <Pressable style={styles.botaoVoltar} onPress={() => navigation.navigate('Duelo', { userChoice })}><Text>Comparar</Text></Pressable>
+                        <Pressable style={styles.botaoVoltar} onPress={() => navigation.pop()}><Text>Voltar</Text></Pressable>
+                    </View>
+
+                </View>
             </View>
         )
     } else if (id == 3) {
         const coletarRes = async () => retornarInfo(id, nome, artista).then((res) => setResultInfo(res))
         coletarRes()
         return (
-            <View>
-                <View>
-                    <Text>{nome} - {artista}</Text>
-                    <Text>No total, {resultInfo.plays} plays e {resultInfo.ouvintes} ouvintes no last.fm!</Text>
-                    <Text>
+            <View style={styles.container}>
+                <View style={styles.resultadoInfo}>
+                    <Text style={styles.tituloResultadoInfo}>{nome} - {artista}</Text>
+                    <Text style={styles.textoResultadoInfo}>No total, {resultInfo.plays} plays e {resultInfo.ouvintes} ouvintes no last.fm!</Text>
+                    <Text style={styles.textoResultadoInfo}>
                         {resultInfo.tags ? `Tags: ${resultInfo.tags}` : ''}
                     </Text>
-                    <Image style={{ width: 200, height: 200 }} source={{ uri: resultInfo.image }}></Image>
-
+                    <Image style={styles.imgResultadoInfo} source={{ uri: resultInfo.image }}></Image>
+                    <View style={styles.botaoVoltarCaixa}>
+                        <Pressable style={styles.botaoVoltar} onPress={() => navigation.navigate('Duelo', { userChoice })}><Text>Comparar</Text></Pressable>
+                        <Pressable style={styles.botaoVoltar} onPress={() => navigation.pop()}><Text>Voltar</Text></Pressable>
+                    </View>
                 </View>
-                <Pressable style={styles.botaoVoltar} onPress={() => navigation.navigate('Duelo', { userChoice })}><Text>Comparar</Text></Pressable>
-                <Pressable style={styles.botaoVoltar} onPress={() => navigation.pop()}><Text>Voltar</Text></Pressable>
+
             </View>
         )
     }

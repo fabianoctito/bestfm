@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { StyleSheet, Text, TouchableOpacity, View, TextInput, Pressable, Image, FlatList, ScrollView } from "react-native";
 import { procurarUser, coletarInfoUser } from "../../utils.jsx";
-import styles2 from '../Estilos.jsx';
+import styles from '../Estilos.jsx';
 
 export default function DuelPage({ route }) {
     const [escolha, setEscolha] = useState({})
@@ -19,7 +19,7 @@ export default function DuelPage({ route }) {
         } else if (id == 3) {
             return `Comparação do álbum "${nome}" de ${artista} entre:`
         }
-        else{
+        else {
             return `Vá na página de pesquisa e procure por alguma música/artista/álbum para comparar!`
         }
     }
@@ -46,19 +46,15 @@ export default function DuelPage({ route }) {
     }, [imgUser1])
 
     return (
-        <View>
-            <View style={styles2.botaoRedir}>
-                <Pressable style={styles2.botaoVoltar}>
-                    <Text>
-                        VOLTAR
-                    </Text>
-                </Pressable>
+        <View style={styles.container}>
+            <View>
+                <Text style={styles.tituloDuelo} >{mostrarTitulo(escolha.id, escolha.nome, escolha.artista)}</Text>
             </View>
-            <Text style={{ alignSelf: 'center' }}>{mostrarTitulo(escolha.id, escolha.nome, escolha.artista)}</Text>
+
             <View style={styles.usersContainer}>
-                <View style={styles2.imgUsuario}>
-                    <Image source={{ uri: imgUser1 }} style={{ width: 148, height: 148, alignSelf: 'center' }}></Image>
-                    <TextInput style={styles.input}
+                <View>
+                    <Image source={{ uri: imgUser1 }} style={styles.imgUsuario}></Image>
+                    <TextInput style={styles.input2}
                         onChangeText={e => { setUsuario1(e); searchUs(e, 1) }}
                         placeholder={`1º usuário`}
                         value={usuario1}
@@ -66,9 +62,9 @@ export default function DuelPage({ route }) {
                     {/* DEPOIS MUDAR */}
                 </View>
 
-                <View style={styles2.imgUsuario}>
-                    <Image source={{ uri: imgUser2 }} style={{ width: 148, height: 148, alignSelf: 'center' }}></Image>
-                    <TextInput style={styles.input}
+                <View>
+                    <Image source={{ uri: imgUser2 }} style={styles.imgUsuario}></Image>
+                    <TextInput style={styles.input2}
                         onChangeText={e => { setUsuario2(e); searchUs(e, 2) }}
                         placeholder={`2º usuário`}
                         value={usuario2}
@@ -78,7 +74,7 @@ export default function DuelPage({ route }) {
             </View>
 
             <View>
-                <Pressable style={styles2.botaoVoltar}>
+                <Pressable style={[styles.botaoVoltar, { alignSelf: 'center' }]}>
                     <Text>
                         COMPARAR
                     </Text>
@@ -88,17 +84,3 @@ export default function DuelPage({ route }) {
     );
 }
 
-const styles = StyleSheet.create({
-    usersContainer: {
-        flexDirection: 'row',
-        justifyContent: 'space-around',
-        alignItems: 'center',
-        alignContent: 'cen'
-    }, input: {
-        height: 40,
-        width: "75%",
-        borderWidth: 1,
-        padding: 10,
-        alignSelf: 'center'
-    },
-})
