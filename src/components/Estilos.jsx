@@ -221,6 +221,10 @@ const styles = StyleSheet.create({
     height: 148, 
     alignSelf: 'center',
   },
+  centerItens:{
+    marginTop: 'auto',
+  },
 });
+
 
 export default styles

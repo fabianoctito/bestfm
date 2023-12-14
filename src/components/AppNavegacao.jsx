@@ -30,13 +30,12 @@ export default function AppNavegacao() {
             title: '',
             headerTransparent: true,
             headerShown: false,
-            tabBarIcon: ({ focused, color}) => {
-              //const iconName = focused ? "list-ol" : "view-list-outline";
-              //size = focused ? size * 1.5 : size;
+            tabBarIcon: ({ focused, color }) => {
               color = focused ? color = "black" : color = "#f0edee";
               return (
-                <FontAwesome name="search" size={24} color={color}/>
+                <FontAwesome name="search" size={24} color={color} style={styles.centerItens} />
               );
+
             },
           }}
         />
@@ -45,10 +44,10 @@ export default function AppNavegacao() {
             title: '',
             headerTransparent: true,
             headerShown: false,
-            tabBarIcon: ({ focused, color}) => {
+            tabBarIcon: ({ focused, color }) => {
               color = focused ? color = "black" : color = "#f0edee";
               return (
-                <Entypo name="home" size={24} color={color}/>
+                <Entypo name="home" size={24} color={color} style={styles.centerItens}/>
               );
             },
           }}
@@ -58,14 +57,10 @@ export default function AppNavegacao() {
             title: '',
             headerTransparent: true,
             headerShown: false,
-            tabBarIcon: ({ focused, color}) => {
+            tabBarIcon: ({ focused, color }) => {
               color = focused ? color = "black" : color = "#f0edee";
               return (
-                <MaterialCommunityIcons
-                  name="sword-cross"
-                  size={24}
-                  color={color}
-                />
+                  <MaterialCommunityIcons name="sword-cross" size={24} color={color} style={styles.centerItens}/>
               );
             },
           }}
