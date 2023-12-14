@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { StyleSheet, Text, TouchableOpacity, View, TextInput, Pressable, Image, FlatList, ScrollView } from "react-native";
-import { procurarUser, coletarInfoUser } from "../../utils.jsx";
+import { procurarUser, handleComparar } from "../../utils.jsx";
+import ResultadoComp from "./ResultadoComp.jsx";
 import styles from '../Estilos.jsx';
 
 export default function DuelPage({ route }) {
@@ -9,7 +10,7 @@ export default function DuelPage({ route }) {
     const [usuario2, setUsuario2] = useState('')
     const [imgUser1, setImgUser1] = useState('https://cdn.icon-icons.com/icons2/67/PNG/512/user_13230.png')
     const [imgUser2, setImgUser2] = useState('https://cdn.icon-icons.com/icons2/67/PNG/512/user_13230.png')
-    // DPS TIRAR ISSO E COLOCAR NUM ARRAY COM USUARIO SLA
+    const [resultado, setResultado] = useState(null)
 
     const mostrarTitulo = (id, nome, artista) => {
         if (id == 1) {
@@ -41,10 +42,6 @@ export default function DuelPage({ route }) {
         if (route.params) setEscolha(route.params.userChoice)
     }, [route.params])
 
-    useEffect(() => {
-        console.log(imgUser1)
-    }, [imgUser1])
-
     return (
         <View style={styles.container}>
             <View>
@@ -59,7 +56,6 @@ export default function DuelPage({ route }) {
                         placeholder={`1º usuário`}
                         value={usuario1}
                         inputMode="text" />
-                    {/* DEPOIS MUDAR */}
                 </View>
 
                 <View>
@@ -69,16 +65,20 @@ export default function DuelPage({ route }) {
                         placeholder={`2º usuário`}
                         value={usuario2}
                         inputMode="text" />
-                    {/* DEPOIS MUDAR */}
                 </View>
             </View>
 
             <View>
-                <Pressable style={[styles.botaoVoltar, { alignSelf: 'center' }]}>
+                <Pressable style={[styles.botaoVoltar, { alignSelf: 'center' }]} onPress={()=> handleComparar(usuario1, usuario2, escolha).then((response)=>setResultado(response))}>
                     <Text>
                         COMPARAR
                     </Text>
                 </Pressable>
+            </View>
+            <View>
+                {
+                    resultado ? <ResultadoComp id={escolha.id} nome={escolha.nome} artista={escolha.artista} us1={usuario1} us2={usuario2} resultado={resultado}/> : null
+                }
             </View>
         </View>
     );

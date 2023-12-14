@@ -120,6 +120,43 @@ export async function procurarUser(usuario) {
   }
 }
 
-export async function coletarInfoUser() {
+export async function handleComparar(us1, us2, escolha) {
+  try {
+    if (us1 == undefined || us1.trim() == '' || us2 == undefined || us2.trim() == '' || us1 == us2) return 404
+    let resUs1 = await fetch(`https://ws.audioscrobbler.com/2.0/?method=user.getinfo&user=${us1}&api_key=32c7f2300cd26210d0ffcb714ce26ca7&format=json`);
+    let resUs2 = await fetch(`https://ws.audioscrobbler.com/2.0/?method=user.getinfo&user=${us2}&api_key=32c7f2300cd26210d0ffcb714ce26ca7&format=json`);
+    resUs1 = await resUs1.json();
+    resUs2 = await resUs2.json();
 
+    if (resUs1.error == 6 || resUs1.user.playcount == 0 || resUs2.error == 6 || resUs2.user.playcount == 0) return 404
+
+    return compararUsuarios(resUs1.user, resUs2.user, escolha)
+  } catch (error) {
+  }
+}
+
+export async function compararUsuarios(us1, us2, escolha) {
+  if (escolha.id == 1) {
+    let limUs1 = us1.track_count > 1000 ? 1000 : us1.track_count
+    let limUs2 = us2.track_count > 1000 ? 1000 : us2.track_count
+
+    let result1 = await fetch(`https://ws.audioscrobbler.com/2.0/?method=user.gettoptracks&user=${us1.name}&api_key=32c7f2300cd26210d0ffcb714ce26ca7&limit=${limUs1}&format=json`);
+    let result2 = await fetch(`https://ws.audioscrobbler.com/2.0/?method=user.gettoptracks&user=${us2.name}&api_key=32c7f2300cd26210d0ffcb714ce26ca7&limit=${limUs2}&format=json`);
+    result1 = await result1.json()
+    result2 = await result2.json()
+    let resMus1 = result1.toptracks.track.filter((e) => { if (e.name == escolha.nome) return e })[0]
+    let resMus2 = result2.toptracks.track.filter((e) => { if (e.name == escolha.nome) return e })[0]
+
+    return ([
+      {
+        posicao: resMus1['@attr'].rank,
+        plays: resMus1.playcount
+      },
+      {
+        posicao: resMus2['@attr'].rank,
+        plays: resMus2.playcount
+      },
+
+    ])
+  }
 }
