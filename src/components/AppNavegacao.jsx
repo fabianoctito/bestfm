@@ -14,13 +14,12 @@ const Tab = createBottomTabNavigator();
 export default function AppNavegacao() {
   return (
     <NavigationContainer >
-      <Tab.Navigator initialRouteName='Pesquisa'
+      <Tab.Navigator initialRouteName='Duelo'
         screenOptions={{
           tabBarInactiveBackgroundColor: '#07393c',
           tabBarActiveBackgroundColor: '#f0edee',
           tabBarStyle: {
-          borderTopColor: 'black',
-
+            borderTopColor: 'black',
           }
         }}
 
@@ -31,16 +30,12 @@ export default function AppNavegacao() {
             title: '',
             headerTransparent: true,
             headerShown: false,
-            tabBarIcon: ({ focused, color, size }) => {
+            tabBarIcon: ({ focused, color}) => {
               //const iconName = focused ? "list-ol" : "view-list-outline";
               //size = focused ? size * 1.5 : size;
               color = focused ? color = "black" : color = "#f0edee";
               return (
-                <FontAwesome
-                  name="search"
-                  size={24}
-                  color={color}
-                />
+                <FontAwesome name="search" size={24} color={color}/>
               );
             },
           }}
@@ -50,16 +45,10 @@ export default function AppNavegacao() {
             title: '',
             headerTransparent: true,
             headerShown: false,
-            tabBarIcon: ({ focused, color, size }) => {
-              //const iconName = focused ? "list-ol" : "view-list-outline";
-              //size = focused ? size * 1.5 : size;
+            tabBarIcon: ({ focused, color}) => {
               color = focused ? color = "black" : color = "#f0edee";
               return (
-                <Entypo
-                  name="home"
-                  size={24}
-                  color={color}
-                />
+                <Entypo name="home" size={24} color={color}/>
               );
             },
           }}
@@ -69,9 +58,7 @@ export default function AppNavegacao() {
             title: '',
             headerTransparent: true,
             headerShown: false,
-            tabBarIcon: ({ focused, color, size }) => {
-              //const iconName = focused ? "list-ol" : "view-list-outline";
-              //size = focused ? size * 1.5 : size;
+            tabBarIcon: ({ focused, color}) => {
               color = focused ? color = "black" : color = "#f0edee";
               return (
                 <MaterialCommunityIcons
