@@ -12,6 +12,14 @@ import { Entypo } from '@expo/vector-icons';
 const Tab = createBottomTabNavigator();
 
 export default function AppNavegacao() {
+
+  const forFade = ({ current }) => ({
+    cardStyle: {
+      opacity: current.progress,
+    },
+  });
+
+  
   return (
     <NavigationContainer >
       <Tab.Navigator initialRouteName='Duelo'

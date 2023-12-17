@@ -116,19 +116,19 @@ export async function procurarUser(usuario) {
     if (json.error == 6 || json.user.playcount == 0 || !json.user.image[3]['#text']) return 'https://cdn.icon-icons.com/icons2/67/PNG/512/user_13230.png'
     return json.user.image[3]['#text']
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 }
 
 export async function handleComparar(us1, us2, escolha) {
   try {
-    if (us1 == undefined || us1.trim() == '' || us2 == undefined || us2.trim() == '' || us1 == us2) return 404
+    if (us1 == undefined || us1.trim() == '' || us2 == undefined || us2.trim() == '' || us1 == us2) return 406
     let resUs1 = await fetch(`https://ws.audioscrobbler.com/2.0/?method=user.getinfo&user=${us1}&api_key=32c7f2300cd26210d0ffcb714ce26ca7&format=json`);
     let resUs2 = await fetch(`https://ws.audioscrobbler.com/2.0/?method=user.getinfo&user=${us2}&api_key=32c7f2300cd26210d0ffcb714ce26ca7&format=json`);
     resUs1 = await resUs1.json();
     resUs2 = await resUs2.json();
 
-    if (resUs1.error == 6 || resUs1.user.playcount == 0 || resUs2.error == 6 || resUs2.user.playcount == 0) return 404
+    if (resUs1.error == 6 || resUs1.user.playcount == 0 || resUs2.error == 6 || resUs2.user.playcount == 0) return 406
 
     return compararUsuarios(resUs1.user, resUs2.user, escolha)
   } catch (error) {
@@ -146,15 +146,61 @@ export async function compararUsuarios(us1, us2, escolha) {
     result2 = await result2.json()
     let resMus1 = result1.toptracks.track.filter((e) => { if (e.name == escolha.nome) return e })[0]
     let resMus2 = result2.toptracks.track.filter((e) => { if (e.name == escolha.nome) return e })[0]
-
+    if (!resMus1 || !resMus2) return 404
     return ([
       {
-        posicao: resMus1['@attr'].rank,
-        plays: resMus1.playcount
+        posicao: parseInt(resMus1['@attr'].rank),
+        plays: parseInt(resMus1.playcount)
       },
       {
-        posicao: resMus2['@attr'].rank,
-        plays: resMus2.playcount
+        posicao: parseInt(resMus2['@attr'].rank),
+        plays: parseInt(resMus2.playcount)
+      },
+
+    ])
+  }
+  else if (escolha.id == 2) {
+    let limUs1 = us1.artist_count > 1000 ? 1000 : us1.artist_count
+    let limUs2 = us2.artist_count > 1000 ? 1000 : us2.artist_count
+
+    let result1 = await fetch(`https://ws.audioscrobbler.com/2.0/?method=user.gettopartists&user=${us1.name}&api_key=32c7f2300cd26210d0ffcb714ce26ca7&limit=${limUs1}&format=json`);
+    let result2 = await fetch(`https://ws.audioscrobbler.com/2.0/?method=user.gettopartists&user=${us2.name}&api_key=32c7f2300cd26210d0ffcb714ce26ca7&limit=${limUs2}&format=json`);
+    result1 = await result1.json()
+    result2 = await result2.json()
+    let resArt1 = result1.topartists.artist.filter((e) => { if (e.name == escolha.nome) return e })[0]
+    let resArt2 = result2.topartists.artist.filter((e) => { if (e.name == escolha.nome) return e })[0]
+    if (!resArt1 || !resArt2) return 404
+    return ([
+      {
+        posicao: parseInt(resArt1['@attr'].rank),
+        plays: parseInt(resArt1.playcount)
+      },
+      {
+        posicao: parseInt(resArt2['@attr'].rank),
+        plays: parseInt(resArt2.playcount)
+      },
+
+    ])
+  }
+  else if (escolha.id == 3) {
+    let limUs1 = us1.album_count > 1000 ? 1000 : us1.album_count
+    let limUs2 = us2.album_count > 1000 ? 1000 : us2.album_count
+
+    let result1 = await fetch(`https://ws.audioscrobbler.com/2.0/?method=user.gettopalbums&user=${us1.name}&api_key=32c7f2300cd26210d0ffcb714ce26ca7&limit=${limUs1}&format=json`);
+    let result2 = await fetch(`https://ws.audioscrobbler.com/2.0/?method=user.gettopalbums&user=${us2.name}&api_key=32c7f2300cd26210d0ffcb714ce26ca7&limit=${limUs2}&format=json`);
+    result1 = await result1.json()
+    result2 = await result2.json()
+    let resAlb1 = result1.topalbums.album.filter((e) => { if (e.name == escolha.nome) return e })[0]
+    let resAlb2 = result2.topalbums.album.filter((e) => { if (e.name == escolha.nome) return e })[0]
+    if (!resAlb1 || !resAlb2) return 404
+    return ([
+      {
+        posicao: parseInt(resAlb1['@attr'].rank),
+        plays: parseInt(resAlb1.playcount)
+      },
+      {
+        posicao: parseInt(resAlb2['@attr'].rank),
+        plays: parseInt(resAlb2.playcount)
       },
 
     ])

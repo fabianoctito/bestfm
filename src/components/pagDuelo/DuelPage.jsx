@@ -16,7 +16,7 @@ export default function DuelPage({ route }) {
         if (id == 1) {
             return `Comparação da música "${nome}" de ${artista} entre:`
         } else if (id == 2) {
-            return `Comparação de ${artista} entre: `
+            return `Comparação de ${nome} entre: `
         } else if (id == 3) {
             return `Comparação do álbum "${nome}" de ${artista} entre:`
         }
@@ -26,6 +26,7 @@ export default function DuelPage({ route }) {
     }
 
     const searchUs = (e, num) => {
+        setResultado(null)
         if (num == 1) {
             procurarUser(e).then((response) => {
                 setImgUser1(response)
@@ -40,6 +41,7 @@ export default function DuelPage({ route }) {
 
     useEffect(() => {
         if (route.params) setEscolha(route.params.userChoice)
+        setResultado(null)
     }, [route.params])
 
     return (

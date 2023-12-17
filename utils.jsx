@@ -116,7 +116,7 @@ export async function procurarUser(usuario) {
     if (json.error == 6 || json.user.playcount == 0 || !json.user.image[3]['#text']) return 'https://cdn.icon-icons.com/icons2/67/PNG/512/user_13230.png'
     return json.user.image[3]['#text']
   } catch (error) {
-    console.log(error);
+    console.eroor(error);
   }
 }
 
@@ -136,11 +136,7 @@ export async function handleComparar(us1, us2, escolha) {
 }
 
 export async function compararUsuarios(us1, us2, escolha) {
-  console.log("b")
-
   if (escolha.id == 1) {
-    console.log("c")
-
     let limUs1 = us1.track_count > 1000 ? 1000 : us1.track_count
     let limUs2 = us2.track_count > 1000 ? 1000 : us2.track_count
 
