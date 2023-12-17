@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
     width: '90%',
   },
   textoResultado: {
-    fontSize: 20,
+    fontSize: 17,
   },
   itemResultado: {
     backgroundColor: '#f0edee',
@@ -57,12 +57,13 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     borderRadius: 5,
-    fontSize: 12,
   },
   resultadoInfo: {
     alignSelf: 'center',
     paddingTop: 10,
     paddingBottom: 10,
+    paddingLeft: 5,
+    paddingRight: 5,
     backgroundColor: '#2c666e',
     marginVertical: 4,
     marginHorizontal: 15,
@@ -76,7 +77,7 @@ const styles = StyleSheet.create({
     color: '#f0edee',
     fontSize: 20,
     textAlign: 'center',
-    paddingBottom: 20,
+    paddingBottom: 10,
   },
   imgResultadoInfo: {
     width: 200,
@@ -143,7 +144,7 @@ const styles = StyleSheet.create({
     paddingVertical: 3,
     paddingHorizontal: 2,
     marginHorizontal: 5,
-    height: 80,
+    height: 50,
     width: 100,
     borderRadius: 4,
   },
@@ -210,10 +211,9 @@ const styles = StyleSheet.create({
   },
   tituloDuelo:{
     color: '#f0edee',
-    alignSelf: 'center',
-    fontSize: 18,
-    fontWeight: 'bold',
-    paddingVertical: 20,
+    textAlign: 'center',
+    fontSize: 14,
+    paddingVertical: 15,
     paddingHorizontal: 10,
   },
   imgUsuario:{
@@ -224,6 +224,24 @@ const styles = StyleSheet.create({
   centerItens:{
     marginTop: 'auto',
   },
+  tituloCabec:{
+    fontSize: 24,
+    fontWeight: 'bold',
+    color: '#f0edee',
+    textAlign: 'center',
+    backgroundColor: '#07393c',
+    padding: 8,
+  },
+  resultComparacao: {
+    color: '#f0edee',
+    textAlign: 'center',
+    fontSize: 20,
+  },
+  coroa:{
+    alignSelf: 'flex-start',
+    paddingTop: 8,
+    margin: 0,
+  }
 });
 
 

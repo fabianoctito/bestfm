@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { StyleSheet, Text, TouchableOpacity, View, TextInput, Pressable, Image, FlatList, ScrollView } from "react-native";
-import { realizarPesquisa } from '../../utils.jsx';
+import { realizarPesquisa } from '../../../utils.jsx';
 import styles from '../Estilos.jsx';
 import Resultado from "./Resultado.jsx";
 import { FontAwesome } from '@expo/vector-icons';
@@ -14,6 +14,7 @@ export default function SearchPage({ navigation }) {
 
     return (
         <ScrollView style={styles.container}>
+            <Text style={styles.tituloCabec}>PESQUISA</Text>
             <View style={styles.pesquisa}>
                 <TextInput 
                     style={styles.input}

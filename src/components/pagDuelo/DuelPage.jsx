@@ -21,7 +21,7 @@ export default function DuelPage({ route }) {
             return `Comparação do álbum "${nome}" de ${artista} entre:`
         }
         else {
-            return `Vá na página de pesquisa e procure por alguma música/artista/álbum para comparar!`
+            return `VÁ ATÉ A PÁGINA DE PESQUISA E PROCURE ALGUM ÁLBUM/ARTISTA/MÚSICA PARA COMPARAR!`
         }
     }
 
@@ -45,6 +45,7 @@ export default function DuelPage({ route }) {
     return (
         <View style={styles.container}>
             <View>
+                <Text style={styles.tituloCabec}>DUELO</Text>
                 <Text style={styles.tituloDuelo} >{mostrarTitulo(escolha.id, escolha.nome, escolha.artista)}</Text>
             </View>
 
@@ -69,18 +70,17 @@ export default function DuelPage({ route }) {
             </View>
 
             <View>
-                <Pressable style={[styles.botaoVoltar, { alignSelf: 'center' }]} onPress={()=> handleComparar(usuario1, usuario2, escolha).then((response)=>setResultado(response))}>
+                <Pressable style={[styles.botaoVoltar, { alignSelf: 'center' }]} onPress={() => handleComparar(usuario1, usuario2, escolha).then((response) => setResultado(response))}>
                     <Text>
-                        COMPARAR
+                        Comparar
                     </Text>
                 </Pressable>
             </View>
             <View>
                 {
-                    resultado ? <ResultadoComp id={escolha.id} nome={escolha.nome} artista={escolha.artista} us1={usuario1} us2={usuario2} resultado={resultado}/> : null
+                    resultado ? <ResultadoComp id={escolha.id} nome={escolha.nome} artista={escolha.artista} us1={usuario1} us2={usuario2} resultado={resultado} /> : null
                 }
             </View>
         </View>
     );
 }
-
