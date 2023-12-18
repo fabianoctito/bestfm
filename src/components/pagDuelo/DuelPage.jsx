@@ -4,7 +4,7 @@ import { procurarUser, handleComparar } from "../../utils.jsx";
 import ResultadoComp from "./ResultadoComp.jsx";
 import styles from '../Estilos.jsx';
 
-export default function DuelPage({ route }) {
+export default function DuelPage({ route,navigation }) {
     const [escolha, setEscolha] = useState({})
     const [usuario1, setUsuario1] = useState('')
     const [usuario2, setUsuario2] = useState('')
@@ -21,7 +21,7 @@ export default function DuelPage({ route }) {
             return `Comparação do álbum "${nome}" de ${artista} entre:`
         }
         else {
-            return `VÁ ATÉ A PÁGINA DE PESQUISA E PROCURE ALGUM ÁLBUM/ARTISTA/MÚSICA PARA COMPARAR!`
+            return `Escolha uma música, artista ou álbum na aba de pesquisa para fazer a comparação!`
         }
     }
 
@@ -72,11 +72,13 @@ export default function DuelPage({ route }) {
             </View>
 
             <View>
-                <Pressable style={[styles.botaoVoltar, { alignSelf: 'center' }]} onPress={() => handleComparar(usuario1, usuario2, escolha).then((response) => setResultado(response))}>
-                    <Text>
-                        Comparar
-                    </Text>
-                </Pressable>
+                {escolha.nome ?
+                    <Pressable style={[styles.botaoVoltar, { alignSelf: 'center' }]} onPress={() => handleComparar(usuario1, usuario2, escolha).then((response) => setResultado(response))}><Text>Comparar</Text></Pressable> :
+                    <Pressable style={[styles.botaoVoltar, { alignSelf: 'center' }]} onPress={() => navigation.navigate('Pesquisa')}><Text>Escolher item</Text></Pressable>
+                }
+
+
+
             </View>
             <View>
                 {

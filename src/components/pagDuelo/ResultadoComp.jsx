@@ -21,15 +21,21 @@ export default function Resultado(props) {
         else if (props.resultado[0].plays > props.resultado[1].plays) {
             return (
                 <View>
-                    <Foundation style={styles.coroa} name="crown" size={24} color="yellow" />
-                    <Text style={styles.resultComparacao}>{props.us1} escutou "{props.nome}" de {props.artista} {props.resultado[0].plays - props.resultado[1].plays} vezes a mais que {props.us2}</Text>
+                    <View style={{display: 'flex', flexDirection: 'column'}}>
+                    <Foundation style={styles.coroa} name="crown" size={64} color="#f0edee" />
+                        <Text style={styles.ganhador}>{props.us1}</Text>
+                    </View>
+                    <View>
+                        <Text style={styles.resultComparacao}>{props.us1} escutou "{props.nome}" de {props.artista} {props.resultado[0].plays - props.resultado[1].plays} vezes a mais que {props.us2}</Text>
+                    </View>
+
                 </View>
             )
         }
         else if (props.resultado[0].plays < props.resultado[1].plays) {
             return (
                 <View>
-                    <Foundation style={styles.coroa} name="crown" size={24} color="yellow" />
+                    <Foundation style={styles.coroa} name="crown" size={24} color="white" />
                     <Text style={styles.resultComparacao}>{props.us2} escutou "{props.nome}" de {props.artista} {props.resultado[1].plays - props.resultado[0].plays} vezes a mais que {props.us1}</Text>
                 </View>
             )
@@ -53,7 +59,7 @@ export default function Resultado(props) {
         else if (props.resultado[0].plays > props.resultado[1].plays) {
             return (
                 <View>
-                    <Foundation style={styles.coroa} name="crown" size={24} color="yellow" />
+                    <Foundation style={styles.coroa} name="crown" size={24} color="white" />
                     <Text style={styles.resultComparacao}>{props.us1} escutou "{props.nome}" {props.resultado[0].plays - props.resultado[1].plays} vezes a mais que {props.us2}</Text>
                 </View>
             )
@@ -61,7 +67,7 @@ export default function Resultado(props) {
         else if (props.resultado[0].plays < props.resultado[1].plays) {
             return (
                 <View>
-                    <Foundation style={styles.coroa} name="crown" size={24} color="yellow" />
+                    <Foundation style={styles.coroa} name="crown" size={24} color="white" />
                     <Text style={styles.resultComparacao}>{props.us2} escutou "{props.nome}" {props.resultado[1].plays - props.resultado[0].plays} vezes a mais que {props.us1}</Text>
                 </View>
             )

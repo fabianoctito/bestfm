@@ -236,12 +236,23 @@ const styles = StyleSheet.create({
     color: '#f0edee',
     textAlign: 'center',
     fontSize: 20,
+    paddingHorizontal: 10,
   },
   coroa:{
-    alignSelf: 'flex-start',
+    alignSelf: 'center',
     paddingTop: 8,
-    margin: 0,
-  }
+    marginTop: 0,
+    marginBottom: 0,
+    fontSize: 64,
+  },
+  ganhador:{
+    textAlign: 'center',
+    fontSize: 50,
+    marginTop: 0,
+    color: '#f0edee',
+    fontWeight: 'bold',
+    paddingBottom: 3,
+  },
 });
 
 
