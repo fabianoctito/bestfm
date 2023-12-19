@@ -22,7 +22,7 @@ export default function AppNavegacao() {
   
   return (
     <NavigationContainer >
-      <Tab.Navigator initialRouteName='Duelo'
+      <Tab.Navigator initialRouteName='Início'
         screenOptions={{
           tabBarInactiveBackgroundColor: '#07393c',
           tabBarActiveBackgroundColor: '#f0edee',
