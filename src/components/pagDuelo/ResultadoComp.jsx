@@ -1,6 +1,7 @@
-import { StyleSheet, Text, TouchableOpacity, View, Alert, Platform, StatusBar, Image, ScrollView, FlatList, Pressable } from "react-native";
+import { Text, View } from "react-native";
 import styles from '../Estilos.jsx';
 import { Foundation } from '@expo/vector-icons';
+
 export default function Resultado(props) {
     if (props.resultado == null) return
     if (props.resultado == 406) {
@@ -22,8 +23,8 @@ export default function Resultado(props) {
             return (
                 <View>
                     <View>
-                        <Foundation style={styles.coroa} name="crown" size={64} color="#f0edee" />
-                        <Text style={styles.ganhador}>{props.us1}</Text>
+                        <Foundation style={styles.coroa} name="crown" color="#f0edee" />
+                        <Text style={styles.ganhador}>{props.us1} - {props.resultado[0].plays} plays</Text>
                     </View>
                     <View>
                         <Text style={styles.resultComparacao}>{props.us1} escutou "{props.nome}" de {props.artista} {props.resultado[0].plays - props.resultado[1].plays} vezes a mais que {props.us2}</Text>
@@ -36,8 +37,8 @@ export default function Resultado(props) {
             return (
                 <View>
                     <View>
-                        <Foundation style={styles.coroa} name="crown" size={64} color="#f0edee" />
-                        <Text style={styles.ganhador}>{props.us2}</Text>
+                        <Foundation style={styles.coroa} name="crown" color="#f0edee" />
+                        <Text style={styles.ganhador}>{props.us2} - {props.resultado[1].plays} plays</Text>
                     </View>
                     <Text style={styles.resultComparacao}>{props.us2} escutou "{props.nome}" de {props.artista} {props.resultado[1].plays - props.resultado[0].plays} vezes a mais que {props.us1}</Text>
                 </View>
@@ -63,8 +64,8 @@ export default function Resultado(props) {
             return (
                 <View>
                     <View>
-                        <Foundation style={styles.coroa} name="crown" size={64} color="#f0edee" />
-                        <Text style={styles.ganhador}>{props.us1}</Text>
+                        <Foundation style={styles.coroa} name="crown" color="#f0edee" />
+                        <Text style={styles.ganhador}>{props.us1} - {props.resultado[0].plays} plays</Text>
                     </View>
                     <Text style={styles.resultComparacao}>{props.us1} escutou "{props.nome}" {props.resultado[0].plays - props.resultado[1].plays} vezes a mais que {props.us2}</Text>
                 </View>
@@ -74,8 +75,8 @@ export default function Resultado(props) {
             return (
                 <View>
                     <View>
-                        <Foundation style={styles.coroa} name="crown" size={64} color="#f0edee" />
-                        <Text style={styles.ganhador}>{props.us2}</Text>
+                        <Foundation style={styles.coroa} name="crown" color="#f0edee" />
+                        <Text style={styles.ganhador}>{props.us2} - {props.resultado[1].plays} plays</Text>
                     </View>
                     <Text style={styles.resultComparacao}>{props.us2} escutou "{props.nome}" {props.resultado[1].plays - props.resultado[0].plays} vezes a mais que {props.us1}</Text>
                 </View>
@@ -100,8 +101,8 @@ export default function Resultado(props) {
             return (
                 <View>
                     <View>
-                        <Foundation style={styles.coroa} name="crown" size={64} color="#f0edee" />
-                        <Text style={styles.ganhador}>{props.us1}</Text>
+                        <Foundation style={styles.coroa} name="crown" color="#f0edee" />
+                        <Text style={styles.ganhador}>{props.us1} - {props.resultado[0].plays} plays</Text>
                     </View>
                     <Text style={styles.resultComparacao}>{props.us1} escutou "{props.nome}" de {props.artista} {props.resultado[0].plays - props.resultado[1].plays} vezes a mais que {props.us2}</Text>
                 </View>
@@ -111,8 +112,8 @@ export default function Resultado(props) {
             return (
                 <View>
                     <View>
-                        <Foundation style={styles.coroa} name="crown" size={64} color="#f0edee" />
-                        <Text style={styles.ganhador}>{props.us2}</Text>
+                        <Foundation style={styles.coroa} name="crown" color="#f0edee" />
+                        <Text style={styles.ganhador}>{props.us2} - {props.resultado[1].plays} plays</Text>
                     </View>
                     <Text style={styles.resultComparacao}>{props.us2} escutou {props.nome} de {props.artista} {props.resultado[1].plays - props.resultado[0].plays} vezes a mais que {props.us1}</Text>
                 </View>

@@ -1,5 +1,6 @@
-import { StyleSheet, Text, TouchableOpacity, View, Alert, Platform, StatusBar, Image } from "react-native";
+import { Text, View } from "react-native";
 import styles from '../Estilos.jsx'
+
 export default function ItemRank(props) {
     if (props.musica) {
         return (

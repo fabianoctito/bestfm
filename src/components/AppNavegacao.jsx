@@ -1,25 +1,18 @@
 import * as React from 'react';
-import { Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import styles from './Estilos.jsx';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import HomeScreen from './pagInicial/HomeScreen'; import DuelPage from './pagDuelo/DuelPage';
+import styles from './Estilos.jsx';
+
+import HomeScreen from './pagInicial/HomeScreen';
+import DuelPage from './pagDuelo/DuelPage';
 import NavegacaoPesquisa from './pagPesquisa/NavegacaoPesquisa';
+
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
-import { FontAwesome } from '@expo/vector-icons';
-import { Entypo } from '@expo/vector-icons';
+import { FontAwesome, Entypo } from '@expo/vector-icons';
 
 const Tab = createBottomTabNavigator();
 
 export default function AppNavegacao() {
-
-  const forFade = ({ current }) => ({
-    cardStyle: {
-      opacity: current.progress,
-    },
-  });
-
-  
   return (
     <NavigationContainer >
       <Tab.Navigator initialRouteName='Início'
@@ -55,7 +48,7 @@ export default function AppNavegacao() {
             tabBarIcon: ({ focused, color }) => {
               color = focused ? color = "black" : color = "#f0edee";
               return (
-                <Entypo name="home" size={24} color={color} style={styles.centerItens}/>
+                <Entypo name="home" size={24} color={color} style={styles.centerItens} />
               );
             },
           }}
@@ -68,7 +61,7 @@ export default function AppNavegacao() {
             tabBarIcon: ({ focused, color }) => {
               color = focused ? color = "black" : color = "#f0edee";
               return (
-                  <MaterialCommunityIcons name="sword-cross" size={24} color={color} style={styles.centerItens}/>
+                <MaterialCommunityIcons name="sword-cross" size={24} color={color} style={styles.centerItens} />
               );
             },
           }}

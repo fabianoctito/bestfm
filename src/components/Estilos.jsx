@@ -1,7 +1,6 @@
 import { StyleSheet } from 'react-native';
 import { StatusBar } from "react-native";
 
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -96,7 +95,6 @@ const styles = StyleSheet.create({
     fontSize: 17,
     color: '#f0edee',
     textAlign: 'center',
-    // fontWeight: 100, FICA CRASHANDO O APP
     margin: 1,
   },
   numero: {
@@ -244,17 +242,16 @@ const styles = StyleSheet.create({
     paddingTop: 8,
     marginTop: 0,
     marginBottom: 0,
-    fontSize: 64,
+    fontSize: 50,
   },
   ganhador:{
     textAlign: 'center',
-    fontSize: 40,
+    fontSize: 30,
     marginTop: 0,
     color: '#f0edee',
     fontWeight: 'bold',
     paddingBottom: 3,
   },
 });
-
 
 export default styles

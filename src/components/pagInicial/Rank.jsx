@@ -1,7 +1,6 @@
-import { FlatList, View } from "react-native";
+import { View } from "react-native";
 import { useEffect, useState } from "react";
 import { consultarTopArtistas, consultarTopTracks } from '../../utils.jsx';
-import styles from '../Estilos.jsx'
 import ItemRank from "./ItemRank.jsx";
 
 export default function Rank(props) {

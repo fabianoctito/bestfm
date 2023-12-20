@@ -1,4 +1,4 @@
-import { StyleSheet, Text, TouchableOpacity, View, Alert, Platform, StatusBar, Image, ScrollView, FlatList, Pressable } from "react-native";
+import { Text, View, Image, ScrollView, Pressable } from "react-native";
 import styles from '../Estilos.jsx';
 import { retornarInfo } from "../../utils.jsx";
 import { useState } from "react";
@@ -11,6 +11,7 @@ export default function ResultPage({ route, navigation }) {
         nome,
         artista
     }
+
     if (id == 1) {
         const coletarRes = async () => retornarInfo(id, nome, artista).then((res) => setResultInfo(res))
         coletarRes()
@@ -32,6 +33,7 @@ export default function ResultPage({ route, navigation }) {
                 </View>
             </View>
         )
+
     } else if (id == 2) {
         const coletarRes = async () => retornarInfo(id, nome).then((res) => setResultInfo(res))
         coletarRes()
@@ -58,6 +60,7 @@ export default function ResultPage({ route, navigation }) {
                 </View>
             </ScrollView>
         )
+        
     } else if (id == 3) {
         const coletarRes = async () => retornarInfo(id, nome, artista).then((res) => setResultInfo(res))
         coletarRes()

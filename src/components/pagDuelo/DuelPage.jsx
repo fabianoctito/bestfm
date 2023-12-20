@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import { StyleSheet, Text, TouchableOpacity, View, TextInput, Pressable, Image, FlatList, ScrollView } from "react-native";
+import { Text, View, TextInput, Pressable, Image, ScrollView } from "react-native";
 import { procurarUser, handleComparar } from "../../utils.jsx";
 import ResultadoComp from "./ResultadoComp.jsx";
 import styles from '../Estilos.jsx';
 
-export default function DuelPage({ route,navigation }) {
+export default function DuelPage({ route, navigation }) {
     const [escolha, setEscolha] = useState({})
     const [usuario1, setUsuario1] = useState('')
     const [usuario2, setUsuario2] = useState('')
@@ -76,9 +76,6 @@ export default function DuelPage({ route,navigation }) {
                     <Pressable style={[styles.botaoVoltar, { alignSelf: 'center', marginBottom: 5, }]} onPress={() => handleComparar(usuario1, usuario2, escolha).then((response) => setResultado(response))}><Text>Comparar</Text></Pressable> :
                     <Pressable style={[styles.botaoVoltar, { alignSelf: 'center', marginBottom: 5, }]} onPress={() => navigation.navigate('Pesquisa')}><Text>Escolher item</Text></Pressable>
                 }
-
-
-
             </View>
             <View>
                 {

@@ -202,7 +202,6 @@ export async function compararUsuarios(us1, us2, escolha) {
         posicao: parseInt(resAlb2['@attr'].rank),
         plays: parseInt(resAlb2.playcount)
       },
-
     ])
   }
 }
