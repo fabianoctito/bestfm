@@ -21,7 +21,7 @@ export default function Resultado(props) {
         else if (props.resultado[0].plays > props.resultado[1].plays) {
             return (
                 <View>
-                    <View style={{ display: 'flex', flexDirection: 'column' }}>
+                    <View>
                         <Foundation style={styles.coroa} name="crown" size={64} color="#f0edee" />
                         <Text style={styles.ganhador}>{props.us1}</Text>
                     </View>
@@ -35,7 +35,7 @@ export default function Resultado(props) {
         else if (props.resultado[0].plays < props.resultado[1].plays) {
             return (
                 <View>
-                    <View style={{ display: 'flex', flexDirection: 'column' }}>
+                    <View>
                         <Foundation style={styles.coroa} name="crown" size={64} color="#f0edee" />
                         <Text style={styles.ganhador}>{props.us2}</Text>
                     </View>
@@ -62,7 +62,7 @@ export default function Resultado(props) {
         else if (props.resultado[0].plays > props.resultado[1].plays) {
             return (
                 <View>
-                    <View style={{ display: 'flex', flexDirection: 'column' }}>
+                    <View>
                         <Foundation style={styles.coroa} name="crown" size={64} color="#f0edee" />
                         <Text style={styles.ganhador}>{props.us1}</Text>
                     </View>
@@ -73,7 +73,7 @@ export default function Resultado(props) {
         else if (props.resultado[0].plays < props.resultado[1].plays) {
             return (
                 <View>
-                    <View style={{ display: 'flex', flexDirection: 'column' }}>
+                    <View>
                         <Foundation style={styles.coroa} name="crown" size={64} color="#f0edee" />
                         <Text style={styles.ganhador}>{props.us2}</Text>
                     </View>
@@ -99,7 +99,7 @@ export default function Resultado(props) {
         else if (props.resultado[0].plays > props.resultado[1].plays) {
             return (
                 <View>
-                    <View style={{ display: 'flex', flexDirection: 'column' }}>
+                    <View>
                         <Foundation style={styles.coroa} name="crown" size={64} color="#f0edee" />
                         <Text style={styles.ganhador}>{props.us1}</Text>
                     </View>
@@ -110,7 +110,7 @@ export default function Resultado(props) {
         else if (props.resultado[0].plays < props.resultado[1].plays) {
             return (
                 <View>
-                    <View style={{ display: 'flex', flexDirection: 'column' }}>
+                    <View>
                         <Foundation style={styles.coroa} name="crown" size={64} color="#f0edee" />
                         <Text style={styles.ganhador}>{props.us2}</Text>
                     </View>

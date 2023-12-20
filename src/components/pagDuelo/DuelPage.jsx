@@ -45,7 +45,7 @@ export default function DuelPage({ route,navigation }) {
     }, [route.params])
 
     return (
-        <View style={styles.container}>
+        <ScrollView style={styles.container}>
             <View>
                 <Text style={styles.tituloCabec}>DUELO</Text>
                 <Text style={styles.tituloDuelo} >{mostrarTitulo(escolha.id, escolha.nome, escolha.artista)}</Text>
@@ -73,8 +73,8 @@ export default function DuelPage({ route,navigation }) {
 
             <View>
                 {escolha.nome ?
-                    <Pressable style={[styles.botaoVoltar, { alignSelf: 'center' }]} onPress={() => handleComparar(usuario1, usuario2, escolha).then((response) => setResultado(response))}><Text>Comparar</Text></Pressable> :
-                    <Pressable style={[styles.botaoVoltar, { alignSelf: 'center' }]} onPress={() => navigation.navigate('Pesquisa')}><Text>Escolher item</Text></Pressable>
+                    <Pressable style={[styles.botaoVoltar, { alignSelf: 'center', marginBottom: 5, }]} onPress={() => handleComparar(usuario1, usuario2, escolha).then((response) => setResultado(response))}><Text>Comparar</Text></Pressable> :
+                    <Pressable style={[styles.botaoVoltar, { alignSelf: 'center', marginBottom: 5, }]} onPress={() => navigation.navigate('Pesquisa')}><Text>Escolher item</Text></Pressable>
                 }
 
 
@@ -85,6 +85,6 @@ export default function DuelPage({ route,navigation }) {
                     resultado ? <ResultadoComp id={escolha.id} nome={escolha.nome} artista={escolha.artista} us1={usuario1} us2={usuario2} resultado={resultado} /> : null
                 }
             </View>
-        </View>
+        </ScrollView>
     );
 }

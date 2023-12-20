@@ -15,13 +15,16 @@ export default function ResultPage({ route, navigation }) {
         const coletarRes = async () => retornarInfo(id, nome, artista).then((res) => setResultInfo(res))
         coletarRes()
         return (
+            // MÚSICA
             <View style={styles.container}>
                 <View style={styles.resultadoInfo}>
-                    <Text style={styles.tituloResultadoInfo}>{nome} - {artista}</Text>
-                    <Text style={styles.textoResultadoInfo}>No total, {resultInfo.plays} plays e {resultInfo.ouvintes} ouvintes no last.fm!</Text>
-                    <Text style={[styles.textoResultadoInfo,{fontSize:15}]}>
-                        {resultInfo.tags ? `Tags: ${resultInfo.tags}` : ''}
-                    </Text>
+                    <View>
+                        <Text style={styles.tituloResultadoInfo}>{nome} - {artista}</Text>
+                        <Text style={styles.textoResultadoInfo}>No total, {resultInfo.plays} plays e {resultInfo.ouvintes} ouvintes no last.fm!</Text>
+                        <Text style={[styles.textoResultadoInfo, { fontSize: 15 }]}>
+                            {resultInfo.tags ? `Tags: ${resultInfo.tags}` : ''}
+                        </Text>
+                    </View>
                     <View style={styles.botaoVoltarCaixa}>
                         <Pressable style={styles.botaoVoltar} onPress={() => navigation.navigate('Duelo', { userChoice })}><Text>Comparar</Text></Pressable>
                         <Pressable style={styles.botaoVoltar} onPress={() => navigation.pop()}><Text>Voltar</Text></Pressable>
@@ -33,7 +36,8 @@ export default function ResultPage({ route, navigation }) {
         const coletarRes = async () => retornarInfo(id, nome).then((res) => setResultInfo(res))
         coletarRes()
         return (
-            <View style={styles.container}>
+            // ARTISTA
+            <ScrollView style={[styles.container, { paddingTop: 5, paddingBottom: 5 }]}>
                 <View style={styles.resultadoInfo}>
                     <Text style={styles.tituloResultadoInfo}>{nome}</Text>
                     <Text style={styles.textoResultadoInfo}>No total, {resultInfo.plays} plays e {resultInfo.ouvintes} ouvintes no last.fm!</Text>
@@ -43,7 +47,7 @@ export default function ResultPage({ route, navigation }) {
                     <Text style={styles.textoResultadoInfo}>
                         {resultInfo.tour ? `${nome} está em tour no momento!` : `${nome} não está em tour no momento.`}
                     </Text>
-                    <Text style={[styles.textoResultadoInfo,{fontSize:15, paddingBottom: 10}]}>
+                    <Text style={[styles.textoResultadoInfo, { fontSize: 15, paddingBottom: 10 }]}>
                         {resultInfo.tags ? `Tags: ${resultInfo.tags}` : ''}
                     </Text>
                     <View style={styles.botaoVoltarCaixa}>
@@ -52,12 +56,13 @@ export default function ResultPage({ route, navigation }) {
                     </View>
 
                 </View>
-            </View>
+            </ScrollView>
         )
     } else if (id == 3) {
         const coletarRes = async () => retornarInfo(id, nome, artista).then((res) => setResultInfo(res))
         coletarRes()
         return (
+            // ÁLBUM
             <View style={styles.container}>
                 <View style={styles.resultadoInfo}>
                     <Text style={styles.tituloResultadoInfo}>{nome} - {artista}</Text>
@@ -71,7 +76,6 @@ export default function ResultPage({ route, navigation }) {
                         <Pressable style={styles.botaoVoltar} onPress={() => navigation.pop()}><Text>Voltar</Text></Pressable>
                     </View>
                 </View>
-
             </View>
         )
     }

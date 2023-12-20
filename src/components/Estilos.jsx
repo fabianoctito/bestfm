@@ -237,6 +237,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 20,
     paddingHorizontal: 10,
+    marginBottom: 5,
   },
   coroa:{
     alignSelf: 'center',
@@ -247,7 +248,7 @@ const styles = StyleSheet.create({
   },
   ganhador:{
     textAlign: 'center',
-    fontSize: 50,
+    fontSize: 40,
     marginTop: 0,
     color: '#f0edee',
     fontWeight: 'bold',
